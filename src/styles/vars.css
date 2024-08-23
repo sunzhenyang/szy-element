@@ -1,0 +1,73 @@
+:root {
+  /* colors */
+  --vs-color-white: #ffffff;
+  --vs-color-black: #000000;
+  --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
+
+  @each $val, $color in var(--colors) {
+    --vs-color-$(val): $(color);
+    @for $i from 3 to 9 by 2 {
+      --vs-color-$(val)-light-$(i): mix(#fff, $(color), .$(i));
+    }
+    --vs-color-$(val)-light-8: mix(#fff, $(color), 0.8);
+    --vs-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  --vs-bg-color: #ffffff;
+  --vs-bg-color-page: #f2f3f5;
+  --vs-bg-color-overlay: #ffffff;
+  --vs-text-color-primary: #303133;
+  --vs-text-color-regular: #606266;
+  --vs-text-color-secondary: #909399;
+  --vs-text-color-placeholder: #a8abb2;
+  --vs-text-color-disabled: #c0c4cc;
+  --vs-border-color: #dcdfe6;
+  --vs-border-color-light: #e4e7ed;
+  --vs-border-color-lighter: #ebeef5;
+  --vs-border-color-extra-light: #f2f6fc;
+  --vs-border-color-dark: #d4d7de;
+  --vs-border-color-darker: #cdd0d6;
+  --vs-fill-color: #f0f2f5;
+  --vs-fill-color-light: #f5f7fa;
+  --vs-fill-color-lighter: #fafafa;
+  --vs-fill-color-extra-light: #fafcff;
+  --vs-fill-color-dark: #ebedf0;
+  --vs-fill-color-darker: #e6e8eb;
+  --vs-fill-color-blank: #ffffff;
+
+  /* border */
+  --vs-border-width: 1px;
+  --vs-border-style: solid;
+  --vs-border-color-hover: var(--vs-text-color-disabled);
+  --vs-border: var(--vs-border-width) var(--vs-border-style) var(--vs-border-color);
+  --vs-border-radius-base: 4px;
+  --vs-border-radius-small: 2px;
+  --vs-border-radius-round: 20px;
+  --vs-border-radius-circle: 100%;
+
+  /*font*/
+  --vs-font-size-extra-large: 20px;
+  --vs-font-size-large: 18px;
+  --vs-font-size-medium: 16px;
+  --vs-font-size-base: 14px;
+  --vs-font-size-small: 13px;
+  --vs-font-size-extra-small: 12px;
+  --vs-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+  --vs-font-weight-primary: 500;
+
+  /*disabled*/
+  --vs-disabled-bg-color: var(--vs-fill-color-light);
+  --vs-disabled-text-color: var(--vs-text-color-placeholder);
+  --vs-disabled-border-color: var(--vs-border-color-light);
+
+  /*animation*/
+  --vs-transition-duration: 0.3s;
+  --vs-transition-duration-fast: 0.2s;
+
+  --vs-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, 0.04), 0px 8px 20px rgba(0, 0, 0, 0.08);
+  --vs-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, 0.12);
+  --vs-box-shadow-lighter: 0px 0px 6px rgba(0, 0, 0, 0.12);
+  --vs-box-shadow-dark: 0px 16px 48px 16px rgba(0, 0, 0, 0.08), 0px 12px 32px rgba(0, 0, 0, 0.12),
+    0px 8px 16px -8px rgba(0, 0, 0, 0.16);
+}
